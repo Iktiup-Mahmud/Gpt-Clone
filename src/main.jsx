@@ -4,6 +4,9 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout/layout.jsx'
+import SignUp from './Components/Sign-Up.jsx'
+import Login from './Components/Login.jsx'
+import Home from './Components/Home.jsx'
 
 
 
@@ -14,11 +17,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Root</h1>
+        element: <Home/>
       },
       {
         path: "/home",
-        element: <h1>Home</h1>
+        element: <Home/>
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp/>
+      },
+      {
+        path: "/login",
+        element: <Login/>
       }
     ]
   },
@@ -26,7 +37,6 @@ export const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
     <App />
   </React.StrictMode>,
 )
