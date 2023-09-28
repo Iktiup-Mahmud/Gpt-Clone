@@ -1,0 +1,23 @@
+.gradient {
+    height: fit-content;
+    z-index: -100;
+    color:black ;
+    width: 100%;
+    max-width: 100%;
+    background-image: radial-gradient(at 27% 37%,
+            hsla(215, 98%, 61%, 1) 0px,
+            transparent 0%),
+        radial-gradient(at 97% 21%, rgb(90, 250, 103) 0px, transparent 50%),
+        radial-gradient(at 52% 99%, rgb(247, 40, 60) 0px, transparent 50%),
+        radial-gradient(at 10% 29%, rgb(101, 51, 240) 0px, transparent 50%),
+        radial-gradient(at 97% 96%, rgb(237, 181, 86) 0px, transparent 50%),
+        radial-gradient(at 33% 50%, rgb(76, 118, 214) 0px, transparent 50%),
+        radial-gradient(at 79% 53%, rgb(190, 88, 117) 0px, transparent 50%);
+    position: absolute;
+    /* content: ""; */
+    width: 100%;
+    height: 100%;
+    /* filter: blur(100px) saturate(150%); */
+    /* top: 80px; */
+    opacity: 0.15;
+}

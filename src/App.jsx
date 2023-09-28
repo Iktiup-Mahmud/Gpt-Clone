@@ -5,9 +5,9 @@ import { router } from "./main";
 
 const App = () => {
   return (
-    <div>
+    <>
       <RouterProvider router={router} ></RouterProvider >
-    </div>
+    </>
   );
 };
 
