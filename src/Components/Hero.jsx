@@ -7,6 +7,9 @@ const Hero = () => {
             <nav className="flex justify-between items-center flex-col">
                 <img src={logo} className='w-28 object-contain' alt="" />
             </nav>
+            <button type='button' onClick={() => window.open("https://github.com")}>
+
+            </button>
         </header>
     );
 };
