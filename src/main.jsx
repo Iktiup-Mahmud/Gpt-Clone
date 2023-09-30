@@ -7,6 +7,8 @@ import Layout from './Layout/layout.jsx'
 import SignUp from './Components/Sign-Up.jsx'
 import Login from './Components/Login.jsx'
 import Home from './Components/Home.jsx'
+import { Provider } from 'react-redux'
+import { store } from './Services/Store.js'
 
 
 
@@ -17,19 +19,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />
       },
       {
         path: "/home",
-        element: <Home/>
+        element: <Home />
       },
       {
         path: "/sign-up",
-        element: <SignUp/>
+        element: <SignUp />
       },
       {
         path: "/login",
-        element: <Login/>
+        element: <Login />
       }
     ]
   },
@@ -37,6 +39,8 @@ export const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
 )

@@ -54,7 +54,7 @@ const Lower = () => {
 
                 </form>
             </div>
-            Test
+
         </section>
     );
 };
