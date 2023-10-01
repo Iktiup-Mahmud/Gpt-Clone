@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { copy, linkIcon, loader, tick } from '../assets';
+import { useLazyGetSummeryQuery } from '../Services/Article';
 
 const Lower = () => {
 
@@ -8,15 +9,31 @@ const Lower = () => {
         summery: ""
     });
 
-    const handelSubmit = (e) => {
-        
+    const [getSummery, { error, isFetching }] = useLazyGetSummeryQuery();
+
+    const handelSubmit =async (e) => {
+
         e.preventDefault();
 
+        // const existingArticle = allArticles.find(
+        //     (item) => item.url === article.url
+        // );
 
-        const test = e.target.abc.value
+        // if (existingArticle) return setArticle(existingArticle);
 
-        console.log(test)
-        alert("Submited")
+        // console.log(e.target.abc.value)
+
+        const { data } = await getSummery({ articleUrl: article.url });
+        console.log(data)
+        if (data?.summary) {
+            const newArticle = { ...article, summary: data.summary };
+            const updatedAllArticles = [newArticle, ...allArticles];
+
+            // update state and local storage
+            setArticle(newArticle);
+            // setAllArticles(updatedAllArticles);
+            localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+        }
     }
 
 
@@ -38,8 +55,8 @@ const Lower = () => {
                     <input
                         type='url'
                         placeholder='Paste the article link'
-                        name='abc'
-                        // value={"1"}
+                        // name='abc'
+                        value={article.url}
                         onChange={(e) => setArticle({ ...article, url: e.target.value })}
                         // onKeyDown={handleKeyDown}
                         required
