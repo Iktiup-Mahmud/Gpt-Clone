@@ -7,15 +7,16 @@ export const ArticleApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://article-extractor-and-summarizer.p.rapidapi.com/',
         prepareHeaders: (headers) => {
-            headers.set("X-RapidAPI-Key", rapidapikey),
-            headers.set("X-RapidAPI-Host", "article-extractor-and-summarizer.p.rapidapi.com")
+            headers.set('X-RapidAPI-Key', rapidapikey),
+            headers.set('X-RapidAPI-Host', 'article-extractor-and-summarizer.p.rapidapi.com')
             // console.log(`${baseUrl}`)
             return headers;
         }
     }),
     endpoints: (builder) => ({
         getSummery: builder.query({
-            query: (param) => `/summerize?url=${param.articleUrl}&length=3`
+            // query: (param) => `summerize?url=${param.articleUrl}&length=3`
+            query: (params) => `summarize?url=${encodeURIComponent(params.articleUrl)}&length=3`,
             // `${console.log(param.articleUrl)}`
         })
     })
